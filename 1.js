@@ -26,7 +26,7 @@ function levelOne(){
             triangles[i].setSpeed(random(2, 3), 0);
     	}
     	if (triangles[i].position.x > width*2){
-            triangles[i].setSpeed(random(2, 3), 180);
+            triangles[i].setSpeed(random(-2, -3), 0);
     		console.log(triangles[i].position.x);
     	}
     }
