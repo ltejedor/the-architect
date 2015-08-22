@@ -18,9 +18,9 @@ function setup() {
 	gameLevel = 0;
 
 
+
+	//makes a jelly
 	jelly = createSprite(400, 200, 10, 10);
-
-
 	jelly.draw = function() {
 
 	  //the center of the sprite will be point 0,0
@@ -34,7 +34,6 @@ function setup() {
 	  ellipse(0,0, 100+this.getSpeed(), 100-this.getSpeed());
 	  pop();
 	}
-
   jelly.maxSpeed = 10;
 }
 
@@ -115,21 +114,33 @@ function mousePressed() {
 function levelOne(){
 	background(50, 220, 255);
 
+	createPlatforms(6, 0);
+
+
+
 	//jelly!
-	var jr = Math.random() * 255;
-	var jb = Math.random() * 80;
-	var jg = Math.random() * 200;
-	fill(jr, jb, jg);
-	stroke(jr, jb, jg);
-	strokeWeight(3);
-
-
 	//mouse trailer, the speed is inversely proportional to the mouse distance
   jelly.velocity.x = (mouseX-jelly.position.x)/10;
   jelly.velocity.y = (mouseY-jelly.position.y)/10;
 
-  drawSprites();
+  //will make jelly appear
+  //drawSprites();
 
+}
+
+function createPlatforms(numPlatforms, timesDone){
+	//lol I'm so sorry. should obv be only written once and with a random x position, but couldn't figure out how to make them permanent? Or how to do like any math man w/e it's like 1am here.
+	fill(200, 200, 50);
+	var platformDist = numPlatforms/height;
+
+	var platformPosX = 50;
+	platformPosY = height - 100;
+	rect(platformPosX, platformPosY, width/5, 30);
+
+	//sorry starts here for real
+	rect(400, height - 200, width/3, 30);
+	rect(100, height - 300, width/2, 30);
+	rect(700, height - 400, width/6, 30);
 }
 
 
