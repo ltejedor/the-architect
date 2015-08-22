@@ -20,13 +20,6 @@ function setup() {
 
 	gameLevel = 0;
 
-	//makes a jelly
-	jelly = createSprite(400, 200, 10, 10);
-	jelly.draw = drawJelly;
-    jelly.maxSpeed = 10;
-    jelly.setCollider("circle", -2,2,55);
-	jellies.add(jelly);
-
 }
 
 function draw() {

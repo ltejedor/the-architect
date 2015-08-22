@@ -1,6 +1,6 @@
 function drawTriangleDude(){
 	push();
-	fill(0);
+	fill(230,30,0);
 	triangle(0,0,30,0,15,-25);
 	pop();
 }
@@ -11,6 +11,32 @@ function drawJelly(){
 	  rotate(radians(this.getDirection()));
 	  ellipse(0,0, 100+this.getSpeed(), 100-this.getSpeed());
 	  pop();
+}
+
+function createTriangleDude(){
+	triangledude = createSprite(-10,height-85);
+	triangledude.draw = drawTriangleDude;
+	triangledude.velocity.x = 1;
+	triangledude.setCollider("rectangle",0,0,30,15);
+	triangles.overlap(triangles,stack);
+	triangledude.collide(platforms);
+	triangles.add(triangledude);
+}
+
+function stack(t1,t2){
+	var top;
+	var bottom;
+	if (t1.position.y>=t2.position.y){
+		top = t1;
+		bottom = t2;
+	}
+	else{
+		top = t2;
+		bottom = t1;
+	}
+	if (top.position.y > bottom.position.y + bottom.height) {
+		top.position.y+=10;
+	}
 }
 
 function createPlatforms(numPlatforms){
