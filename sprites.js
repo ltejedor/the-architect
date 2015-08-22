@@ -19,9 +19,13 @@ function createTriangleDude(){
 	//triangledude.velocity.x = Math.random() * 2;
 	triangledude.setCollider("rectangle",0,0,30,15);
 	triangledude.setSpeed(random(2, 3), 0);
-
+  //scale affects the size of the collider
+  triangledude.scale = random(0.5, 1);
+  //mass determines the force exchange in case of bounce
+  triangledude.mass = triangledude.scale;
 	//triangles.overlap(triangles,stack);
 	triangles.add(triangledude);
+
 }
 
 
@@ -57,7 +61,7 @@ function createPlatforms(numPlatforms){
 		xpos = random(0,width-platformWidth);
 		ypos = height-platformDist*(i+1)+platformHeight;
 		var platform = createSprite(xpos,ypos,platformWidth,platformHeight);
-		platform.setCollider("rectangle",xpos,ypos,platformWidth,platformHeight);
+		//platform.setCollider("rectangle",xpos,ypos,platformWidth,platformHeight);
 		platform.immovable = true;
 		// console.log(ypos);
 		platforms.add(platform);
