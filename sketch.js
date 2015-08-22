@@ -128,7 +128,7 @@ function levelOne(){
 function createPlatforms(numPlatforms){
 	//lol I'm so sorry. should obv be only written once and with a random x position, but couldn't figure out how to make them permanent? Or how to do like any math man w/e it's like 1am here.
 	fill(200, 200, 50);
-	var platformDist = numPlatforms/height;
+	var platformDist = height/numPlatforms;
 	var platformHeight = 50;
 	var xpos;
 	var ypos;
@@ -139,7 +139,9 @@ function createPlatforms(numPlatforms){
 		// platformWidth = random(100,300);
 		platformWidth = 200;
 		xpos = random(0,width-platformWidth);
-		ypos = height-platformDist*(i+1);
+		ypos = height-platformDist*(i+1)+platformHeight;
+		console.log(ypos);
+		console.log(i);
 		platforms.push(createSprite(xpos,ypos,platformWidth,platformHeight));
 		platforms[i].setCollider("rectangle",xpos,ypos,platformWidth,platformHeight);
 	}
