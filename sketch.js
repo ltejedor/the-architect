@@ -1,8 +1,11 @@
 /*
-  Empty example
+  I love you! meoww
+
+  also, do literally whatever you want, I'm open to this being super weird and unrelated by the end!
  */
 
-
+var gameLevel;
+var startBtn;
 
 function setup() {
 	var cnv = createCanvas(windowWidth, windowHeight);
@@ -10,10 +13,17 @@ function setup() {
 	textSize(52);
 	textAlign(CENTER);
 	background(5, 5, 10);
+
+	gameLevel = 0;
 }
 
 function draw() {
-	startScreen();
+	if(gameLevel == 0){
+		startScreen();
+	}
+	else{
+		levelOne();
+	}
 }
 
 function startScreen(){
@@ -27,23 +37,58 @@ function startScreen(){
 	text("THE ARCHITECT", width/2, height/2);
 
 
-	var startBtn = new NewButton(width/2, height/2 + 50, 'START');
+	startBtn = new NewButton(width/2, height/2 + 50, 'START');
 	startBtn.showNewBtn();
 
+
 }
+
+//button class
 
 function NewButton(posX, posY, text){
 	this.posX = posX;
 	this.posY = posY;
 	this.butText = text;
+	this.butWidth = 100;
+	this.butHeight = 40;
 }
 
 NewButton.prototype.showNewBtn = function(){
 	rectMode(CENTER);
-	fill(50, 50, 150);
-	rect(this.posX, this.posY, 100, 40);
 
+	//change color on button hover
+	if(this.hoverBtn() == false){
+		fill(50, 50, 150);
+	}
+	else{
+		fill(80, 80, 150);
+	}
+
+	rect(this.posX, this.posY, this.butWidth, this.butHeight);
 	fill(255);
-	textSize(12);
-	text(this.butText, this.posX, this.posY + 4);
+	textSize(16);
+	text(this.butText, this.posX, this.posY + 6);
+}
+
+NewButton.prototype.hoverBtn = function(){
+	 if (mouseX >= this.posX - this.butWidth/2 && mouseX <= this.posX + this.butWidth/2 &&
+     mouseY >= this.posY - this.butHeight/2 && mouseY <= this.posY + this.butHeight/2) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+
+//if the user presses the start button, go up a level
+function mousePressed() {
+	if(startBtn.hoverBtn() == true){
+		gameLevel++;
+	}
+}
+
+
+//level class
+function levelOne(){
+	background(255);
 }
