@@ -61,11 +61,12 @@ function createPlatforms(numPlatforms){
 		xpos = random(0,width-platformWidth);
 		ypos = height-platformDist*(i+1)+platformHeight;
 		var platform = createSprite(xpos,ypos,platformWidth,platformHeight);
-		platform.setCollider("rectangle",xpos,ypos,platformWidth,platformHeight);
+
 		platform.immovable = true;
 		// console.log(ypos);
 		platforms.add(platform);
 		platforms[i].shapeColor=(0,0,0);
+		//platforms[i].setCollider("rectangle",xpos,ypos,platformWidth,platformHeight);
 	}
 
 	// platformPosY = height - 100;
