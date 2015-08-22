@@ -4,6 +4,7 @@
  */
 
 var gameLevel;
+var t; // Counter that resets on each level.
 var startBtn;
 var jelly;
 
@@ -102,15 +103,17 @@ NewButton.prototype.hoverBtn = function(){
 function mousePressed() {
 	if(startBtn.hoverBtn() == true){
 		gameLevel++;
+		t=0;
 	}
 }
 
 
-//level class (sorry, I know not a class yet)
 function levelOne(){
 	// background(50, 220, 255);
 
-	// createPlatforms(6, 0);
+	if (t==0) {
+		createPlatforms(6, 0);
+	}
 
 	jelly.attractionPoint(.2,mouseX,mouseY);
 	//jelly!
@@ -120,7 +123,7 @@ function levelOne(){
 
     //will make jelly appear
     drawSprites();
-
+    t++;
 }
 
 function createPlatforms(numPlatforms, timesDone){
