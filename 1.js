@@ -31,8 +31,9 @@ function levelOne(){
     	}
     }
 
-    triangles.bounce(platforms);
+
     triangles.bounce(triangles);
+    triangles.bounce(platforms);
 
     //drawSprites(jellies);
     drawSprites();
