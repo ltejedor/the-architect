@@ -7,6 +7,7 @@ var gameLevel;
 var t; // Counter that resets on each level.
 var startBtn;
 var jelly;
+var GRAVITY = 0.2;
 
 function setup() {
 	var cnv = createCanvas(windowWidth, windowHeight);
@@ -119,7 +120,7 @@ function levelOne(){
 	//mouse trailer, the speed is inversely proportional to the mouse distance
     jelly.velocity.x = (mouseX-jelly.position.x)/10;
     jelly.velocity.y = (mouseY-jelly.position.y)/10;
-
+    // jelly.velocity.y += GRAVITY;
     //will make jelly appear
     drawSprites();
     t++;
@@ -133,15 +134,14 @@ function createPlatforms(numPlatforms){
 	var xpos;
 	var ypos;
 
-	var platforms = [createSprite(0,height-platformHeight,width,platformHeight)];
+	var platforms = [createSprite(0,height-platformHeight,width*2,platformHeight)];
 	platforms[0].setCollider("rectangle",0,height-platformHeight,width,platformHeight);
 	for (var i=1; i<numPlatforms; i++){
 		// platformWidth = random(100,300);
 		platformWidth = 200;
 		xpos = random(0,width-platformWidth);
 		ypos = height-platformDist*(i+1)+platformHeight;
-		console.log(ypos);
-		console.log(i);
+		// console.log(ypos);
 		platforms.push(createSprite(xpos,ypos,platformWidth,platformHeight));
 		platforms[i].setCollider("rectangle",xpos,ypos,platformWidth,platformHeight);
 	}
