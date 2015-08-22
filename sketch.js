@@ -35,7 +35,7 @@ function draw() {
 
 //if the user presses the start button, go up a level
 function mousePressed() {
-	if(startBtn.hoverBtn() == true){
+	if(startBtn.hoverBtn() == true && gameLevel == 0){
 		gameLevel++;
 		t=0;
 	}
