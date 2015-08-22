@@ -10,6 +10,9 @@ var gameLevel;
 var startBtn;
 var jelly;
 
+ function preload() {
+ }
+
 function setup() {
 	var cnv = createCanvas(windowWidth, windowHeight);
 
@@ -19,22 +22,19 @@ function setup() {
 
 	gameLevel = 0;
 
-
-
 	//makes a jelly
 	jelly = createSprite(400, 200, 10, 10);
 	jelly.draw = function() {
+		//the center of the sprite will be point 0,0
+		//"this" in this function will reference the sprite itself
+		fill(255,90,150);
 
-	  //the center of the sprite will be point 0,0
-	  //"this" in this function will reference the sprite itself
-	  fill(255,90,150);
-
-	  //make the ellipse stretch in the sprite direction
-	  //proportionally to its speed
-	  push();
-	  rotate(radians(this.getDirection()));
-	  ellipse(0,0, 100+this.getSpeed(), 100-this.getSpeed());
-	  pop();
+		//make the ellipse stretch in the sprite direction
+		//proportionally to its speed
+		push();
+		rotate(radians(this.getDirection()));
+		ellipse(0,0, 100+this.getSpeed(), 100-this.getSpeed());
+		pop();
 	}
   jelly.maxSpeed = 10;
   jelly.setCollider("circle", -2,2,55);
@@ -64,8 +64,6 @@ function startScreen(){
 
 	startBtn = new NewButton(width/2, height/2 + 50, 'START');
 	startBtn.showNewBtn();
-
-
 }
 
 //button class
@@ -118,9 +116,7 @@ function levelOne(){
 	background(50, 220, 255);
 
 	createPlatforms(6, 0);
-
-
-
+	animation(ghost,300,200);
 	//jelly!
 	//mouse trailer, the speed is inversely proportional to the mouse distance
   jelly.velocity.x = (mouseX-jelly.position.x)/10;
