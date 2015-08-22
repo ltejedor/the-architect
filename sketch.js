@@ -115,11 +115,10 @@ function levelOne(){
 		createPlatforms(6, 0);
 	}
 
-	jelly.attractionPoint(.2,mouseX,mouseY);
 	//jelly!
 	//mouse trailer, the speed is inversely proportional to the mouse distance
-    // jelly.velocity.x = (mouseX-jelly.position.x)/10;
-    // jelly.velocity.y = (mouseY-jelly.position.y)/10;
+    jelly.velocity.x = (mouseX-jelly.position.x)/10;
+    jelly.velocity.y = (mouseY-jelly.position.y)/10;
 
     //will make jelly appear
     drawSprites();
@@ -143,7 +142,6 @@ function createPlatforms(numPlatforms){
 		ypos = height-platformDist*(i+1);
 		platforms.push(createSprite(xpos,ypos,platformWidth,platformHeight));
 		platforms[i].setCollider("rectangle",xpos,ypos,platformWidth,platformHeight);
-
 	}
 
 	// platformPosY = height - 100;
