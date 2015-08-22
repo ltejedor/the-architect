@@ -59,9 +59,9 @@ function createPlatforms(numPlatforms){
 	var ypos;
 
 	platforms.add(createSprite(0,height-platformHeight,width*2,platformHeight));
-	platforms[0].setCollider("rectangle",0,height-platformHeight,width,platformHeight);
+	platforms[0].setCollider("rectangle",-30,height-platformHeight,width+60,platformHeight);
 	platforms[0].shapeColor=(0,0,0);
-	for (var i=1; i<numPlatforms; i++){
+	for (var i=1; i<numPlatforms-1; i++){
 		// platformWidth = random(100,300);
 		platformWidth = 200;
 		xpos = random(0,width-platformWidth);
@@ -74,22 +74,11 @@ function createPlatforms(numPlatforms){
 		platforms[i].shapeColor=(0,0,0);
 		//platforms[i].setCollider("rectangle",xpos,ypos,platformWidth,platformHeight);
 	}
-
-	// platformPosY = height - 100;
-	// platform1 = createSprite(50, height - 100, width/5, 30);
-	// platform1.setCollider ( "rectangle", platformPosX, platformPosY, width/5, 30)
-	// //sorry starts here for real
-	// platform2 = createSprite(400, height - 200, width/3, 30);
-	// platform2.setCollider("rectangle",400, height - 200, width/3, 30);
-	// platform3 = createSprite(100, height - 300, width/2, 30);
-	// platform3.setCollider("rectangle",100, height - 300, width/2, 30);
-	// platform4 = createSprite(700, height - 400, width/6, 30);
-	// platform4.setCollider("rectangle",700, height - 400, width/6, 30);
-
-
-	// jelly.collide(platform1);
-	// jelly.collide(platform2);
-	// jelly.collide(platform3);
-	// jelly.collide(platform4);
-	// jelly.bounce(platform1);
+	// println(i);
+	// ypos = height-platformDist*(i)+platformHeight;
+	// platforms.add(createSprite(width-100,ypos,200,platformHeight));
+	// //println(platforms.length);
+	// platforms[i+1].setCollider("rectangle",xpos,ypos,platformWidth,platformHeight);
+	// platforms[i+1].immovable = true;
+	// platforms[i+1].shapeColor = (0,0,0);
 }
