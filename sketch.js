@@ -7,18 +7,18 @@ var gameLevel;
 var t; // Counter that resets on each level.
 var startBtn;
 var jelly;
+var platforms;
 var GRAVITY = 0.2;
 
 function setup() {
 	var cnv = createCanvas(windowWidth, windowHeight);
+	platforms = new Group();
 
 	textSize(52);
 	textAlign(CENTER);
 	background(5, 5, 10);
 
 	gameLevel = 0;
-
-
 
 	//makes a jelly
 	jelly = createSprite(400, 200, 10, 10);
@@ -121,20 +121,18 @@ function levelOne(){
     jelly.velocity.x = (mouseX-jelly.position.x)/10;
     jelly.velocity.y = (mouseY-jelly.position.y)/10;
     // jelly.velocity.y += GRAVITY;
-    //will make jelly appear
     drawSprites();
     t++;
 }
 
 function createPlatforms(numPlatforms){
-	//lol I'm so sorry. should obv be only written once and with a random x position, but couldn't figure out how to make them permanent? Or how to do like any math man w/e it's like 1am here.
-	fill(200, 200, 50);
+	fill(0);
 	var platformDist = height/numPlatforms;
 	var platformHeight = 50;
 	var xpos;
 	var ypos;
 
-	var platforms = [createSprite(0,height-platformHeight,width*2,platformHeight)];
+	platforms.add(createSprite(0,height-platformHeight,width*2,platformHeight));
 	platforms[0].setCollider("rectangle",0,height-platformHeight,width,platformHeight);
 	for (var i=1; i<numPlatforms; i++){
 		// platformWidth = random(100,300);
@@ -142,7 +140,7 @@ function createPlatforms(numPlatforms){
 		xpos = random(0,width-platformWidth);
 		ypos = height-platformDist*(i+1)+platformHeight;
 		// console.log(ypos);
-		platforms.push(createSprite(xpos,ypos,platformWidth,platformHeight));
+		platforms.add(createSprite(xpos,ypos,platformWidth,platformHeight));
 		platforms[i].setCollider("rectangle",xpos,ypos,platformWidth,platformHeight);
 	}
 
