@@ -35,6 +35,7 @@ function setup() {
 	  pop();
 	}
   jelly.maxSpeed = 10;
+  jelly.setCollider("circle", -2,2,55);
 }
 
 function draw() {
@@ -135,12 +136,23 @@ function createPlatforms(numPlatforms, timesDone){
 
 	var platformPosX = 50;
 	platformPosY = height - 100;
-	rect(platformPosX, platformPosY, width/5, 30);
-
+	platform1 = createSprite(50, height - 100, width/5, 30);
+	platform1.setCollider ( "rectangle", platformPosX, platformPosY, width/5, 30)
 	//sorry starts here for real
-	rect(400, height - 200, width/3, 30);
-	rect(100, height - 300, width/2, 30);
-	rect(700, height - 400, width/6, 30);
+	platform2 = createSprite(400, height - 200, width/3, 30);
+	platform2.setCollider("rectangle",400, height - 200, width/3, 30);
+	platform3 = createSprite(100, height - 300, width/2, 30);
+	platform3.setCollider("rectangle",100, height - 300, width/2, 30);
+	platform4 = createSprite(700, height - 400, width/6, 30);
+	platform4.setCollider("rectangle",700, height - 400, width/6, 30);
+
+
+	jelly.collide(platform1);
+	jelly.collide(platform2);
+	jelly.collide(platform3);
+	jelly.collide(platform4);
+	jelly.bounce(platform1);
+	drawSprites();
 }
 
 
