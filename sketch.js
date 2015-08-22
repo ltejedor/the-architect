@@ -126,28 +126,41 @@ function levelOne(){
     t++;
 }
 
-function createPlatforms(numPlatforms, timesDone){
+function createPlatforms(numPlatforms){
 	//lol I'm so sorry. should obv be only written once and with a random x position, but couldn't figure out how to make them permanent? Or how to do like any math man w/e it's like 1am here.
 	fill(200, 200, 50);
 	var platformDist = numPlatforms/height;
+	var platformHeight = 50;
+	var xpos;
+	var ypos;
 
-	var platformPosX = 50;
-	platformPosY = height - 100;
-	platform1 = createSprite(50, height - 100, width/5, 30);
-	platform1.setCollider ( "rectangle", platformPosX, platformPosY, width/5, 30)
-	//sorry starts here for real
-	platform2 = createSprite(400, height - 200, width/3, 30);
-	platform2.setCollider("rectangle",400, height - 200, width/3, 30);
-	platform3 = createSprite(100, height - 300, width/2, 30);
-	platform3.setCollider("rectangle",100, height - 300, width/2, 30);
-	platform4 = createSprite(700, height - 400, width/6, 30);
-	platform4.setCollider("rectangle",700, height - 400, width/6, 30);
+	var platforms = [createSprite(0,height-platformHeight,width,platformHeight)];
+	platforms[0].setCollider("rectangle",0,height-platformHeight,width,platformHeight);
+	for (var i=1; i<numPlatforms; i++){
+		// platformWidth = random(100,300);
+		platformWidth = 200;
+		xpos = random(0,width-platformWidth);
+		ypos = height-platformDist*(i+1);
+		platforms.push(createSprite(xpos,ypos,platformWidth,platformHeight));
+		platforms[i].setCollider("rectangle",xpos,ypos,platformWidth,platformHeight);
+
+	}
+
+	// platformPosY = height - 100;
+	// platform1 = createSprite(50, height - 100, width/5, 30);
+	// platform1.setCollider ( "rectangle", platformPosX, platformPosY, width/5, 30)
+	// //sorry starts here for real
+	// platform2 = createSprite(400, height - 200, width/3, 30);
+	// platform2.setCollider("rectangle",400, height - 200, width/3, 30);
+	// platform3 = createSprite(100, height - 300, width/2, 30);
+	// platform3.setCollider("rectangle",100, height - 300, width/2, 30);
+	// platform4 = createSprite(700, height - 400, width/6, 30);
+	// platform4.setCollider("rectangle",700, height - 400, width/6, 30);
 
 
-	jelly.collide(platform1);
-	jelly.collide(platform2);
-	jelly.collide(platform3);
-	jelly.collide(platform4);
-	jelly.bounce(platform1);
-	drawSprites();
+	// jelly.collide(platform1);
+	// jelly.collide(platform2);
+	// jelly.collide(platform3);
+	// jelly.collide(platform4);
+	// jelly.bounce(platform1);
 }
