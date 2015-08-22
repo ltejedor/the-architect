@@ -8,14 +8,15 @@ var t; // Counter that resets on each level.
 var startBtn;
 var jelly;
 var triangledude;
+var jellies;
 var platforms;
 var triangles;
-var GRAVITY = 0.2;
 
 function setup() {
 	var cnv = createCanvas(windowWidth, windowHeight);
 	platforms = new Group();
 	triangles = new Group();
+	jellies = new Group();
 
 	textSize(52);
 	textAlign(CENTER);
@@ -32,9 +33,10 @@ function setup() {
 	  ellipse(0,0, 100+this.getSpeed(), 100-this.getSpeed());
 	  pop();
 	}
-
     jelly.maxSpeed = 10;
     jelly.setCollider("circle", -2,2,55);
+	jellies.add(jelly);
+
 }
 
 function draw() {
@@ -121,9 +123,7 @@ function levelOne(){
 	if (t==0) {
 		createPlatforms(6, 0);
 	}
-
-	//jelly!
-	//mouse trailer, the speed is inversely proportional to the mouse distance
+	
     jelly.velocity.x = (mouseX-jelly.position.x)/10;
     jelly.velocity.y = (mouseY-jelly.position.y)/10;
 
@@ -131,16 +131,23 @@ function levelOne(){
     if (t%100==0) {
 		triangledude = createSprite(width/2,height/2);
 		triangledude.draw = drawTriangleDude;
+		triangledude.velocity.x = 1;
 		triangles.add(triangledude);
-		console.log("it's happening");
-		console.log(t);
     }
 
     for (i=0;i<triangles.length;i++){
-    	triangles[i].velocity.x = 1;
+    	if (triangles[i].position.x < 0){
+    		triangles[i].velocity.x = 1;
+    	}
+    	if (triangles[i].position.x > width*2){
+    		triangles[i].velocity.x = -1;
+    		console.log(triangles[i].position.x)
+    	}
     }
 
-    drawSprites();
+    drawSprites(jellies);
+    drawSprites(triangles);
+    drawSprites(platforms);
     t++;
 }
 
@@ -153,6 +160,7 @@ function createPlatforms(numPlatforms){
 
 	platforms.add(createSprite(0,height-platformHeight,width*2,platformHeight));
 	platforms[0].setCollider("rectangle",0,height-platformHeight,width,platformHeight);
+	platforms[0].shapeColor=(0,0,0);
 	for (var i=1; i<numPlatforms; i++){
 		// platformWidth = random(100,300);
 		platformWidth = 200;
@@ -161,6 +169,7 @@ function createPlatforms(numPlatforms){
 		// console.log(ypos);
 		platforms.add(createSprite(xpos,ypos,platformWidth,platformHeight));
 		platforms[i].setCollider("rectangle",xpos,ypos,platformWidth,platformHeight);
+		platforms[i].shapeColor=(0,0,0);
 	}
 
 	// platformPosY = height - 100;
