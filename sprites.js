@@ -29,10 +29,10 @@ function createTriangleDude(){
 }
 
 
-function stack(t1,t2){
+function stack(triange1, platform1){
 	var top;
 	var bottom;
-	if (t1.position.y>=t2.position.y){
+	/*if (t1.position.y>=t2.position.y){
 		top = t1;
 		bottom = t2;
 	}
@@ -42,7 +42,9 @@ function stack(t1,t2){
 	}
 	if (top.position.y > bottom.position.y + bottom.height) {
 		top.position.y+=10;
-	}
+	}*/
+	triange1.setSpeed(0, 0);
+
 }
 
 function createPlatforms(numPlatforms){

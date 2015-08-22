@@ -35,12 +35,11 @@ function levelOne(){
 
 
     triangles.bounce(triangles);
-    triangles.bounce(platforms);
+    //triangles.bounce(platforms);
 
     for(var i=0; i<platforms.length;i++){
-        triangles.overlap(platforms[i]);
+        triangles.overlap(platforms[i], stack);
     }
-
 
 
 
