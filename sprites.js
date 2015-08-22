@@ -5,23 +5,25 @@ function drawTriangleDude(){
 	pop();
 }
 
-function drawJelly(){
+/*function drawJelly(){
 	  fill(255,90,150);
 	  push();
 	  rotate(radians(this.getDirection()));
 	  ellipse(0,0, 100+this.getSpeed(), 100-this.getSpeed());
 	  pop();
-}
+}*/
 
 function createTriangleDude(){
 	triangledude = createSprite(-10,height-85);
 	triangledude.draw = drawTriangleDude;
-	triangledude.velocity.x = 1;
+	//triangledude.velocity.x = Math.random() * 2;
 	triangledude.setCollider("rectangle",0,0,30,15);
-	triangles.overlap(triangles,stack);
-	triangledude.collide(platforms);
+	triangledude.setSpeed(random(2, 3), 0);
+
+	//triangles.overlap(triangles,stack);
 	triangles.add(triangledude);
 }
+
 
 function stack(t1,t2){
 	var top;
