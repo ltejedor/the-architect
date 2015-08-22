@@ -7,12 +7,15 @@ var gameLevel;
 var t; // Counter that resets on each level.
 var startBtn;
 var jelly;
+var triangledude;
 var platforms;
+var triangles;
 var GRAVITY = 0.2;
 
 function setup() {
 	var cnv = createCanvas(windowWidth, windowHeight);
 	platforms = new Group();
+	triangles = new Group();
 
 	textSize(52);
 	textAlign(CENTER);
@@ -23,12 +26,7 @@ function setup() {
 	//makes a jelly
 	jelly = createSprite(400, 200, 10, 10);
 	jelly.draw = function() {
-	  //the center of the sprite will be point 0,0
-	  //"this" in this function will reference the sprite itself
 	  fill(255,90,150);
-
-	  //make the ellipse stretch in the sprite direction
-	  //proportionally to its speed
 	  push();
 	  rotate(radians(this.getDirection()));
 	  ellipse(0,0, 100+this.getSpeed(), 100-this.getSpeed());
@@ -106,12 +104,20 @@ function mousePressed() {
 		gameLevel++;
 		t=0;
 	}
+	// if (gameLevel>0) {
+	// 	triangledude = createSprite(100,100);
+	// }
 }
 
+function drawTriangleDude(){
+	push();
+	fill(0);
+	triangle(0,0,30,0,15,-25);
+	pop();
+}
 
 function levelOne(){
 	// background(50, 220, 255);
-
 	if (t==0) {
 		createPlatforms(6, 0);
 	}
@@ -120,7 +126,20 @@ function levelOne(){
 	//mouse trailer, the speed is inversely proportional to the mouse distance
     jelly.velocity.x = (mouseX-jelly.position.x)/10;
     jelly.velocity.y = (mouseY-jelly.position.y)/10;
-    // jelly.velocity.y += GRAVITY;
+
+
+    if (t%100==0) {
+		triangledude = createSprite(width/2,height/2);
+		triangledude.draw = drawTriangleDude;
+		triangles.add(triangledude);
+		console.log("it's happening");
+		console.log(t);
+    }
+
+    for (i=0;i<triangles.length;i++){
+    	triangles[i].velocity.x = 1;
+    }
+
     drawSprites();
     t++;
 }
