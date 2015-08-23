@@ -66,17 +66,6 @@ function explosion(triangle, baddie){
 function stack(triangle1, triangle2){
 	var top;
 	var bottom;
-	/*if (t1.position.y>=t2.position.y){
-		top = t1;
-		bottom = t2;
-	}
-	else{
-		top = t2;
-		bottom = t1;
-	}
-	if (top.position.y > bottom.position.y + bottom.height) {
-		top.position.y+=10;
-	}*/
 	if(triangle1.overlap(triangles) && (triangle1.getSpeed() > 0 || triangle2.getSpeed() > 0)){
 		triangle1.position.y = triangle1.position.y - 15;
 		if(triangle1.getSpeed() < triangle2.getSpeed()){

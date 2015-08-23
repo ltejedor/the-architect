@@ -7,15 +7,10 @@ function levelOne(){
         noCursor();
 	}
 
-    //jelly.velocity.x = (mouseX-jelly.position.x)/10;
-    //jelly.velocity.y = (mouseY-jelly.position.y)/10;
-
     cursorSprite.position.x=mouseX;
     cursorSprite.position.y=mouseY;
 
     triangles.overlap(triangles,stack);
-
-
 
     if (t%25==0) {
         createTriangleDude();
@@ -37,7 +32,6 @@ function levelOne(){
         triangles.overlap(platforms[i], jump);
     }
 
-    //drawSprites
     drawSprites();
 
     gravity(triangles, 1);
