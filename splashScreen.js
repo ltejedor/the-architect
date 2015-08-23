@@ -8,10 +8,15 @@ function startScreen(){
 	fill(r, g , b);
 	textFont("Georgia");
 	textSize(55);
+	if (frameCount%2==1) {
+		fill(255);
+		text("BLACKOUT", width/2, height/2);
+		textStyle(BOLD);
+	}
+	else {
+		fill(0);
+	}
 
-	text("BLACKOUT", width/2, height/2);
-
-	textStyle(BOLD);
 
 	startBtn = new NewButton(width/2, height/2 + 50, 'START');
 

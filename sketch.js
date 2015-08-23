@@ -37,9 +37,11 @@ function setup() {
 function draw() {
 	background(255);
 	if(gameLevel == 0){
+		// frameRate(2.5);
 		startScreen();
 	}
 	else if (gameLevel == 1){
+		// frameRate(30);
 		levelOne();
 	}
 }
