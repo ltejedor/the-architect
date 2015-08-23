@@ -118,8 +118,18 @@ function setPlatforms(numPlatforms){
 	var xpos;
 	var ypos;
 
+<<<<<<< HEAD
 	createPlatform(0,height-platformHeight,width*2,platformHeight);
 	createPlatform(0,0,width*2,23);
+=======
+	levelFloor = createSprite(0,height-platformHeight,width*2,platformHeight);
+	levelFloor.immovable = true;
+	levelFloor.shapeColor = (0,0,0);
+
+	levelCeiling = createSprite(0,0,width*2,23);
+	levelCeiling.immovable = true;
+	levelCeiling.shapeColor = (0,0,0);
+>>>>>>> parent of 431acb7... used createPlatform function to make ceiling and floor
 	for (var i=1; i<numPlatforms-1; i++){
 		// platformWidth = random(100,300);
 		platformWidth = 200;
