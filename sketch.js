@@ -24,7 +24,8 @@ var tArray4 = [];
 
 function preload() {
   // add the path to your sound
-	//splashMusic = loadSound('assets/sound/Alaclair_Ensemble_-_14_-_Twit_JournalisT.mp3');
+	splashMusic = loadSound('assets/sound/pinecones.wav');
+	gameBgMusic = loadSound('assets/sound/main-bg-tomb.mp3');
 }
 
 function setup() {
@@ -45,7 +46,7 @@ function setup() {
 
 	gameLevel = 0;
 
-	//splashMusic.play();
+	splashMusic.play();
 
 }
 
@@ -55,7 +56,7 @@ function draw() {
 		startScreen();
 	}
 	else if (gameLevel == 1){
-		background(255);
+		background(58,73,57);
 		frameRate(30);
 		levelOne();
 	}
@@ -67,6 +68,8 @@ function mousePressed() {
 	if(startBtn.hoverBtn() == true && gameLevel == 0){
 		gameLevel++;
 		t=0;
+		splashMusic.stop();
+		gameBgMusic.play();
 	}
 	else if(gameLevel == 1){
 		if(cursorQueue.length > 0){

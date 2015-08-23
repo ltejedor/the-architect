@@ -82,7 +82,9 @@ function displayText(){
 		fill(textCol);
 		textFont("Georgia");
 		textSize(55);
-
+		strokeWeight(2);
+		stroke(255);
 		text("BLACKOUT", width/2, height/2);
+		strokeWeight(0);
 
 }
