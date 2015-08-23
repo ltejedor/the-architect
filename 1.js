@@ -10,9 +10,12 @@ function levelOne(){
     cursorSprite.position.x=mouseX;
     cursorSprite.position.y=50;
 
-    triangles.overlap(triangles,stack);
 
-    if (t%25==0) {
+    triangles.bounce(triangles);
+
+
+
+    if (t%100==0) {
         createTriangleDude();
     }
 
@@ -23,6 +26,12 @@ function levelOne(){
     	if (triangles[i].position.x > width - triangles[i].width/4){
             triangles[i].setSpeed(random(-2, -3), 0);
     	}
+
+        //check it triangle is under first platform
+        if(triangles[i].position.x > platforms[0].position.x - 100 && triangles[i].position.x < platforms[0].position.x + 100){
+            triangles[i].overlap(triangles,stack);
+        }
+
     }
 
 

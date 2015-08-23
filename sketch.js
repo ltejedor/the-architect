@@ -16,6 +16,10 @@ var lastPoints = 0;
 var points = 0;
 var baddies;
 var web;
+var tArray1 = [];
+var tArray2 = [];
+var tArray3 = [];
+var tArray4 = [];
 
 function setup() {
 	createBigBad();
