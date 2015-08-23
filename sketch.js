@@ -21,6 +21,12 @@ var tArray2 = [];
 var tArray3 = [];
 var tArray4 = [];
 
+
+function preload() {
+  // add the path to your sound
+	//splashMusic = loadSound('assets/sound/Alaclair_Ensemble_-_14_-_Twit_JournalisT.mp3');
+}
+
 function setup() {
 	createBigBad();
 
@@ -38,6 +44,8 @@ function setup() {
 	background(200);
 
 	gameLevel = 0;
+
+	//splashMusic.play();
 
 }
 
