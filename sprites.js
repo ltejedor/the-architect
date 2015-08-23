@@ -77,12 +77,5 @@ function setPlatforms(numPlatforms){
 		createPlatform(xpos,ypos,platformWidth,platformHeight);
 	}
 	ypos = height-platformDist*(i+1)+platformHeight;
-	// ypos = height;
 	createPlatform(width/2-100,ypos,200,platformHeight);
-
-	//make them black twice, rectangle still not black
-	for (i=0; i<platforms.legnth; i++) {
-		platforms[i].shapeColor = (0,0,0);
-	}
-
 }
