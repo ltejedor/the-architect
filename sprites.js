@@ -23,18 +23,25 @@ function createTriangleDude(){
 
 function createCircleDude(){
 	var circleDude;
-	circleDude = createSprite(-10,height-85);
-	triangledude.draw = drawTriangleDude;
+	circleDude = createSprite(mouseX, mouseY,15, 15);
+	circleDude.draw = drawCircleDude;
 	//triangledude.velocity.x = Math.random() * 2;
-	triangledude.setCollider("rectangle",0,0,30,15);
-	triangledude.setSpeed(random(2, 3), 0);
+	circleDude.setCollider("rectangle",0,0,30,15);
+	//circleDude.setSpeed(random(2, 3), 90);
     //scale affects the size of the collider
-    triangledude.scale = random(0.5, 1);
+    circleDude.scale = random(0.5, 1);
     //mass determines the force exchange in case of bounce
-    triangledude.mass = triangledude.scale;
+    circleDude.mass = circleDude.scale;
 	//triangles.overlap(triangles,stack);
 	baddies.add(circleDude);
 
+}
+
+function drawCircleDude(){
+	push();
+	fill(5,20,50);
+	ellipse(0, 0, 15, 15);
+	pop();
 }
 
 
@@ -70,10 +77,10 @@ function jump(triangle, platform){
 	//stacking is hard :(
 }
 
-function gravity(typeSprite){
+function gravity(typeSprite, speed){
 	for (var i = 0; i < typeSprite.length; i++){
 		if(!(typeSprite[i].overlap(typeSprite)) && !(typeSprite[i].overlap(levelFloor)) && !(typeSprite[i].overlap(platforms))){
-			typeSprite[i].position.y = typeSprite[i].position.y + 1;
+			typeSprite[i].position.y = typeSprite[i].position.y + speed;
 		}
 	}
 }

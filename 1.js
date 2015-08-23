@@ -42,7 +42,26 @@ function levelOne(){
     //drawSprites
     drawSprites();
 
-    gravity(triangles);
+    gravity(triangles, 1);
+    gravity(baddies, 3);
+
+    //once the baddies stop falling have them choose a direction to go
+    for (var i=0;i<baddies.length;i++){
+        if((baddies[i].position.y == baddies[i].previousPosition.y) && (baddies[i].position.x == baddies[i].previousPosition.x)){
+            baddies[i].setSpeed(random(-2, 2), 0);
+        }
+        else if(!(baddies[i].position.y == baddies[i].previousPosition.y)){
+            baddies[i].setSpeed(0, 0);
+        }
+
+        //also don't let them run off the edge of the screen
+        if (baddies[i].position.x < 0){
+            baddies[i].setSpeed(random(2, 3), 0);
+        }
+        if (baddies[i].position.x > width - baddies[i].width/4){
+            baddies[i].setSpeed(random(-2, -3), 0);
+        }
+    }
 
     t++;
 }
