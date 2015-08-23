@@ -1,7 +1,7 @@
 
 /* to do
-replace shapes with images and animations 
-collisions 
+replace shapes with images and animations
+collisions
 */
 
 var gameLevel;
@@ -11,12 +11,16 @@ var jelly;
 var jellies;
 var platforms;
 var triangles;
+var levelFloor;
+var points;
+var baddies;
 
 function setup() {
 	var cnv = createCanvas(windowWidth, windowHeight);
 	platforms = new Group();
 	triangles = new Group();
 	jellies = new Group();
+	baddies = new Group();
 
 	textSize(52);
 	textAlign(CENTER);
@@ -42,6 +46,9 @@ function mousePressed() {
 	if(startBtn.hoverBtn() == true && gameLevel == 0){
 		gameLevel++;
 		t=0;
+	}
+	else if(gameLevel == 1){
+		createCircleDude();
 	}
 }
 

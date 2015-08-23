@@ -13,10 +13,12 @@ function levelOne(){
     //jelly.velocity.x = (mouseX-jelly.position.x)/10;
     //jelly.velocity.y = (mouseY-jelly.position.y)/10;
 
-    triangles.overlap(triangles,stack);
+
+        triangles.overlap(triangles,stack);
 
 
-    if (t%100==0) {
+
+    if (t%25==0) {
         createTriangleDude();
     }
 
@@ -30,15 +32,18 @@ function levelOne(){
     }
 
 
-    triangles.bounce(triangles);
     //triangles.bounce(platforms);
 
     for(var i=0; i<platforms.length;i++){
-        triangles.overlap(platforms[i], stack);
+        triangles.overlap(platforms[i], jump);
     }
 
-    //drawSprites(jellies);
+
+    //drawSprites
     drawSprites();
+
+    gravity(triangles);
 
     t++;
 }
+
