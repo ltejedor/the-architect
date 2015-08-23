@@ -1,15 +1,38 @@
 function startScreen(){
+	background(0);
+	makeWeb();
 	var r = Math.round(Math.random() * 255);
 	var g = Math.round(Math.random() * 255);
 	var b = Math.round(Math.random() * 255);
 
 	fill(r, g , b);
+	textFont("Georgia");
+	textSize(55);
 
 	text("BLACKOUT", width/2, height/2);
 
+	textStyle(BOLD);
+
 	startBtn = new NewButton(width/2, height/2 + 50, 'START');
+
 	startBtn.showNewBtn();
+	textStyle(NORMAL);
+
 }
+
+function makeWeb(){
+	//HOW DO I MAKE THE LINES STAY?!
+		strokeWeight(3);
+		stroke(random(150, 255));
+	for(var i = 0; i < 5; i++){
+		line(random(0, displayWidth), 0, random(0, displayWidth), displayHeight);
+	}
+	strokeWeight(0);
+}
+
+
+
+
 
 function NewButton(posX, posY, text){
 	this.posX = posX;
