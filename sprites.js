@@ -143,18 +143,3 @@ function createCursor(){
 	cursors.add(cursorSprite);
 }
 
-
-        //makes a jelly
-        //jelly = createSprite(400, 200, 10, 10);
-        //jelly.draw = drawJelly;
-        //jelly.maxSpeed = 10;
-        //jelly.setCollider("circle", -2,2,55);
-        //jellies.add(jelly);
-
-/*function drawJelly(){
-	  fill(255,90,150);
-	  push();
-	  rotate(radians(this.getDirection()));
-	  ellipse(0,0, 100+this.getSpeed(), 100-this.getSpeed());
-	  pop();
-}*/
