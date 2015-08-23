@@ -52,7 +52,7 @@ function createBigBad(){
 	console.log(width);
 	var bigBad;
 	bigBad = createSprite(displayWidth/2 - 30, 60, 5, 5);
-  bigBad.addAnimation("lookAround", "assets/big-bad-1.png", "assets/big-bad-6.png");
+    bigBad.addAnimation("lookAround", "assets/big-bad-1.png", "assets/big-bad-6.png");
 }
 
 function explosion(triangle, baddie){
