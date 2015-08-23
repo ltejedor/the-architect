@@ -79,7 +79,7 @@ function stack(triangle1, triangle2){
 	}
 	var stackHeight = 0;
 	for (i=0;i<tArray1.length;i++){
-		stackHeight+=tArray1[i].height;
+		stackHeight+=tArray1[i].height*tArray1[i].scale;
 	}
 	console.log(stackHeight);
 	if(!(triangle1.stacked)){
