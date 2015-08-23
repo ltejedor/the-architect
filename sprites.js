@@ -24,18 +24,14 @@ function createTriangleDude(){
 
 function createCircleDude(){
 	var circleDude;
-	circleDude = createSprite(mouseX, mouseY,15, 15);
-	//circleDude.draw = drawCircleDude;
-	//triangledude.velocity.x = Math.random() * 2;
+	circleDude = createSprite(mouseX, 50,15, 15);
 	circleDude.setCollider("rectangle",0,0,30,15);
-	//circleDude.setSpeed(random(2, 3), 90);
-    //scale affects the size of the collider
-    circleDude.scale = random(0.5, 1);
-    //mass determines the force exchange in case of bounce
-    circleDude.mass = circleDude.scale;
-    circleDude.hits = 0;
-    circleDude.addAnimation("spiderCrawl", "assets/minion-f-1.png", "assets/minion-f-2.png");
-	//triangles.overlap(triangles,stack);
+  //scale affects the size of the collider
+  circleDude.scale = random(0.5, 1);
+  //mass determines the force exchange in case of bounce
+  circleDude.mass = circleDude.scale;
+  circleDude.hits = 0;
+  circleDude.addAnimation("spiderCrawl", "assets/minion-f-1.png", "assets/minion-f-2.png");
 	baddies.add(circleDude);
 
 }
@@ -129,6 +125,7 @@ function createCursor(){
 	cursorSprite = createSprite(mouseX,mouseY);
 	cursorSprite.addAnimation("Minion","assets/minion-f-1.png");
 	cursorSprite.addAnimation("Nothing","assets/nothing.png");
-	cursors.add(cursorSprite);
+	cursorSprite.position.y = 15;
+	//cursors.add(cursorSprite);
 }
 

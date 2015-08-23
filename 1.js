@@ -8,7 +8,7 @@ function levelOne(){
 	}
 
     cursorSprite.position.x=mouseX;
-    cursorSprite.position.y=mouseY;
+    cursorSprite.position.y=50;
 
     triangles.overlap(triangles,stack);
 
