@@ -81,12 +81,13 @@ function stack(triangle1, triangle2){
 	for (i=0;i<tArray1.length;i++){
 		stackHeight+=tArray1[i].height;
 	}
+	console.log(stackHeight);
 	if(!(triangle1.stacked)){
 		tArray1.push(triangle1);
 	}
 
-	triangle1.setSpeed(0, 0);
-	triangle2.setSpeed(0, 0);
+	// triangle1.setSpeed(0, 0);
+	// triangle2.setSpeed(0, 0);
 
 	triangle1.position.y = triangle1.position.y - stackHeight;
 	// triangle1.position.y = triangle1.position.y - 10 * tArray1.length;
@@ -95,8 +96,6 @@ function stack(triangle1, triangle2){
 
 	triangle1.stacked = true;
 	triangle2.stacked = true;
-
-	console.log(tArray1.length);
 }
 
 function jump(triangle, platform){
@@ -106,7 +105,7 @@ function jump(triangle, platform){
 
 function gravity(typeSprite, speed){
 	for (var i = 0; i < typeSprite.length; i++){
-		if(!(typeSprite[i].overlap(typeSprite)) && !(typeSprite[i].overlap(levelFloor)) && !(typeSprite[i].overlap(platforms))){
+		if(!typeSprite[i].stacked && !(typeSprite[i].overlap(typeSprite)) && !(typeSprite[i].overlap(levelFloor)) && !(typeSprite[i].overlap(platforms))){
 			typeSprite[i].position.y = typeSprite[i].position.y + speed;
 		}
 	}
