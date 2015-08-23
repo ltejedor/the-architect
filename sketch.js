@@ -15,7 +15,7 @@ var levelFloor;
 var lastPoints = 0;
 var points = 0;
 var baddies;
-var web;
+var web = [];
 var tArray1 = [];
 var tArray2 = [];
 var tArray3 = [];
@@ -35,19 +35,19 @@ function setup() {
 
 	textSize(52);
 	textAlign(CENTER);
-	background(5, 5, 10);
+	background(200);
 
 	gameLevel = 0;
 
 }
 
 function draw() {
-	background(255);
 	if(gameLevel == 0){
 		frameRate(4);
 		startScreen();
 	}
 	else if (gameLevel == 1){
+		background(255);
 		frameRate(30);
 		levelOne();
 	}

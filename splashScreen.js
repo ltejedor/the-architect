@@ -1,15 +1,6 @@
 function startScreen(){
-	background(0);
 	makeWeb();
-	var r = Math.round(Math.random() * 255);
-	var g = Math.round(Math.random() * 255);
-	var b = Math.round(Math.random() * 255);
-
-	fill(r, g , b);
-	textFont("Georgia");
-	textSize(55);
-
-	text("BLACKOUT", width/2, height/2);
+	displayText();
 
 	textStyle(BOLD);
 
@@ -21,12 +12,18 @@ function startScreen(){
 }
 
 function makeWeb(){
-	//HOW DO I MAKE THE LINES STAY?!
-		strokeWeight(3);
-		stroke(random(150, 255));
+	strokeWeight(3);
+	stroke(random(0, 50));
+
 	for(var i = 0; i < 5; i++){
-		line(random(0, displayWidth), 0, random(0, displayWidth), displayHeight);
+		if (random(1) < .5){
+			webLine = line(random(0, displayWidth), 0, random(0, displayWidth), displayHeight);
+		}
+		else{
+			webLine = line(0, random(0, displayHeight), displayWidth, random(0, displayHeight));
+		}
 	}
+
 	strokeWeight(0);
 }
 
@@ -66,4 +63,26 @@ NewButton.prototype.hoverBtn = function(){
   } else {
     return false;
   }
+}
+
+function displayText(){
+		var chance = random(1);
+		if(chance<.1){
+			textCol = 200;
+		}
+		else if(chance<.2){
+			textCol = 50;
+		}
+		else{
+			textCol = 0;
+		}
+		//var g = Math.round(Math.random() * 255);
+		//var b = Math.round(Math.random() * 255);
+
+		fill(textCol);
+		textFont("Georgia");
+		textSize(55);
+
+		text("BLACKOUT", width/2, height/2);
+
 }
