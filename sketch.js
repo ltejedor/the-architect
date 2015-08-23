@@ -1,8 +1,7 @@
 
 /* to do
 replace shapes with images and animations 
-fix collisions 
-
+collisions 
 */
 
 var gameLevel;

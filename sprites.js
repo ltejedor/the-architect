@@ -5,14 +5,6 @@ function drawTriangleDude(){
 	pop();
 }
 
-/*function drawJelly(){
-	  fill(255,90,150);
-	  push();
-	  rotate(radians(this.getDirection()));
-	  ellipse(0,0, 100+this.getSpeed(), 100-this.getSpeed());
-	  pop();
-}*/
-
 function createTriangleDude(){
 	var triangleDude;
 	triangledude = createSprite(-10,height-85);
@@ -20,10 +12,10 @@ function createTriangleDude(){
 	//triangledude.velocity.x = Math.random() * 2;
 	triangledude.setCollider("rectangle",0,0,30,15);
 	triangledude.setSpeed(random(2, 3), 0);
-  //scale affects the size of the collider
-  triangledude.scale = random(0.5, 1);
-  //mass determines the force exchange in case of bounce
-  triangledude.mass = triangledude.scale;
+    //scale affects the size of the collider
+    triangledude.scale = random(0.5, 1);
+    //mass determines the force exchange in case of bounce
+    triangledude.mass = triangledude.scale;
 	//triangles.overlap(triangles,stack);
 	triangles.add(triangledude);
 
@@ -58,7 +50,6 @@ function createPlatform(x,y,w,h){
 	platform.immovable = true;
 	platform.shapeColor = (0,0,0);
 	platforms.add(platform);
-	println("1");
 }
 
 function setPlatforms(numPlatforms){
@@ -79,3 +70,12 @@ function setPlatforms(numPlatforms){
 	ypos = height-platformDist*(i+1)+platformHeight;
 	createPlatform(width/2-100,ypos,200,platformHeight);
 }
+
+
+/*function drawJelly(){
+	  fill(255,90,150);
+	  push();
+	  rotate(radians(this.getDirection()));
+	  ellipse(0,0, 100+this.getSpeed(), 100-this.getSpeed());
+	  pop();
+}*/

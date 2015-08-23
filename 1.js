@@ -20,8 +20,6 @@ function levelOne(){
         createTriangleDude();
     }
 
-
-
     for (var i=0;i<triangles.length;i++){
     	if (triangles[i].position.x < 0){
             triangles[i].setSpeed(random(2, 3), 0);
@@ -39,13 +37,8 @@ function levelOne(){
         triangles.overlap(platforms[i], stack);
     }
 
-
-
     //drawSprites(jellies);
     drawSprites();
-
-
-
 
     t++;
 }
