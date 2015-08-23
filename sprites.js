@@ -74,15 +74,24 @@ function stack(triangle1, triangle2){
 		}
 	}*/
 
-	if(!(triangle1.stacked)){
-		tArray1.push(triangle1);
-	}
 	if(!(triangle2.stacked)){
 		tArray1.push(triangle2);
 	}
+	var stackHeight = 0;
+	for (i=0;i<tArray1.length;i++){
+		stackHeight+=tArray1[i].height;
+	}
+	if(!(triangle1.stacked)){
+		tArray1.push(triangle1);
+	}
+
 	triangle1.setSpeed(0, 0);
 	triangle2.setSpeed(0, 0);
-	triangle1.position.y = triangle1.position.y - 10 * tArray1.length;
+
+	triangle1.position.y = triangle1.position.y - stackHeight;
+	// triangle1.position.y = triangle1.position.y - 10 * tArray1.length;
+	triangle1.position.x = tArray1[0].position.x;
+	triangle2.position.x = tArray1[0].position.x;
 
 	triangle1.stacked = true;
 	triangle2.stacked = true;
