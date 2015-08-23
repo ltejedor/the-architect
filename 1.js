@@ -1,5 +1,6 @@
 function levelOne(){
 	// background(50, 220, 255);
+
 	if (t==0) {
 		setPlatforms(6, 0);
         //makes a jelly
@@ -14,7 +15,7 @@ function levelOne(){
     //jelly.velocity.y = (mouseY-jelly.position.y)/10;
 
 
-        triangles.overlap(triangles,stack);
+    triangles.overlap(triangles,stack);
 
 
 
@@ -39,6 +40,8 @@ function levelOne(){
     }
 
 
+
+
     //drawSprites
     drawSprites();
 
@@ -61,7 +64,19 @@ function levelOne(){
         if (baddies[i].position.x > width - baddies[i].width/4){
             baddies[i].setSpeed(random(-2, -3), 0);
         }
+
+        //if a baddie hits a triangle the triangle goes away
+        triangles.overlap(baddies[i], explosion);
+
+        //if a circle baddie gets hit 3 times it disappears
+        if(baddies[i].hits > 3){
+            baddies[i].remove();
+        }
     }
+
+    updatePoints();
+
+
 
     t++;
 }

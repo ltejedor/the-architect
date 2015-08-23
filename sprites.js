@@ -8,7 +8,7 @@ function drawTriangleDude(){
 function createTriangleDude(){
 	var triangledude;
 	triangledude = createSprite(-10,height-85);
-	triangledude.draw = drawTriangleDude;
+	//triangledude.draw = drawTriangleDude;
 	//triangledude.velocity.x = Math.random() * 2;
 	triangledude.setCollider("rectangle",0,0,30,15);
 	triangledude.setSpeed(random(2, 3), 0);
@@ -16,6 +16,7 @@ function createTriangleDude(){
     triangledude.scale = random(0.5, 1);
     //mass determines the force exchange in case of bounce
     triangledude.mass = triangledude.scale;
+    triangledude.addAnimation("t-walk", "assets/t-dude-1.png", "assets/t-dude-4.png");
 	//triangles.overlap(triangles,stack);
 	triangles.add(triangledude);
 
@@ -24,7 +25,7 @@ function createTriangleDude(){
 function createCircleDude(){
 	var circleDude;
 	circleDude = createSprite(mouseX, mouseY,15, 15);
-	circleDude.draw = drawCircleDude;
+	//circleDude.draw = drawCircleDude;
 	//triangledude.velocity.x = Math.random() * 2;
 	circleDude.setCollider("rectangle",0,0,30,15);
 	//circleDude.setSpeed(random(2, 3), 90);
@@ -32,6 +33,8 @@ function createCircleDude(){
     circleDude.scale = random(0.5, 1);
     //mass determines the force exchange in case of bounce
     circleDude.mass = circleDude.scale;
+    circleDude.hits = 0;
+    circleDude.addAnimation("spiderCrawl", "assets/minion-f-1.png", "assets/minion-f-2.png");
 	//triangles.overlap(triangles,stack);
 	baddies.add(circleDude);
 
@@ -43,6 +46,21 @@ function drawCircleDude(){
 	ellipse(0, 0, 15, 15);
 	pop();
 }
+
+
+function createBigBad(){
+	console.log(width);
+	var bigBad;
+	bigBad = createSprite(displayWidth/2 - 30, 60, 5, 5);
+  bigBad.addAnimation("lookAround", "assets/big-bad-1.png", "assets/big-bad-6.png");
+}
+
+function explosion(triangle, baddie){
+	triangle.remove();
+	baddie.hits++;
+	points++;
+}
+
 
 
 function stack(triangle1, triangle2){
@@ -103,6 +121,10 @@ function setPlatforms(numPlatforms){
 	levelFloor = createSprite(0,height-platformHeight,width*2,platformHeight);
 	levelFloor.immovable = true;
 	levelFloor.shapeColor = (0,0,0);
+
+	levelCeiling = createSprite(0,0,width*2,23);
+	levelCeiling.immovable = true;
+	levelCeiling.shapeColor = (0,0,0);
 	for (var i=1; i<numPlatforms-1; i++){
 		// platformWidth = random(100,300);
 		platformWidth = 200;

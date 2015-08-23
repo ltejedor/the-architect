@@ -12,15 +12,19 @@ var jellies;
 var platforms;
 var triangles;
 var levelFloor;
-var points;
+var points = 5;
 var baddies;
+var web;
 
 function setup() {
+	createBigBad();
+
 	var cnv = createCanvas(windowWidth, windowHeight);
 	platforms = new Group();
 	triangles = new Group();
 	jellies = new Group();
 	baddies = new Group();
+	web = new Group();
 
 	textSize(52);
 	textAlign(CENTER);
@@ -48,7 +52,15 @@ function mousePressed() {
 		t=0;
 	}
 	else if(gameLevel == 1){
-		createCircleDude();
+		if(points > 0){
+			createCircleDude();
+			points = points - 1;
+		}
 	}
 }
 
+function updatePoints(){
+	fill(0);
+	textSize(12);
+	text(points, mouseX + 20, mouseY)
+}
