@@ -46,6 +46,9 @@ function levelOne(){
     gravity(triangles, 1);
     gravity(baddies, 3);
 
+    for (i=0;i<tArray1.length;i++) {
+        tArray1[i].setSpeed(0,0);
+    }
     //once the baddies stop falling have them choose a direction to go
     for (var i=0;i<baddies.length;i++){
         if((baddies[i].position.y == baddies[i].previousPosition.y) && (baddies[i].position.x == baddies[i].previousPosition.x)){
