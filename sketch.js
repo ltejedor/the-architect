@@ -63,6 +63,19 @@ function mousePressed() {
 
 function updatePoints(){
 	fill(0);
-	textSize(12);
-	text(points, mouseX + 20, mouseY)
+	textSize(40);
+	if (points<10){
+		var stringpts = "000"+str(points);
+	}
+	else if (points<100){
+		var stringpts = "00"+str(points);
+	}
+	else if (points<1000){
+		var stringpts = "0"+str(points);
+
+	}
+	else {
+		var stringpts = str(points);
+	}
+	text(stringpts, 60, 50);
 }
