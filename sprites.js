@@ -75,10 +75,10 @@ function createPlatforms(numPlatforms){
 		//platforms[i].setCollider("rectangle",xpos,ypos,platformWidth,platformHeight);
 	}
 	// println(i);
-	// ypos = height-platformDist*(i)+platformHeight;
-	// platforms.add(createSprite(width-100,ypos,200,platformHeight));
-	// //println(platforms.length);
-	// platforms[i+1].setCollider("rectangle",xpos,ypos,platformWidth,platformHeight);
-	// platforms[i+1].immovable = true;
-	// platforms[i+1].shapeColor = (0,0,0);
+	ypos = height-platformDist*(i)+platformHeight;
+	platforms.add(createSprite(width-100,ypos,200,platformHeight));
+	//println(platforms.length);
+	platforms[i+1].setCollider("rectangle",xpos,ypos,platformWidth,platformHeight);
+	platforms[i+1].immovable = true;
+	platforms[i+1].shapeColor = (0,0,0);
 }

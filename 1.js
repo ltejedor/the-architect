@@ -29,7 +29,6 @@ function levelOne(){
     	}
     	if (triangles[i].position.x > width - triangles[i].width/4){
             triangles[i].setSpeed(random(-2, -3), 0);
-    		console.log(triangles[i].position.x);
     	}
     }
 
