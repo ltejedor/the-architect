@@ -14,6 +14,7 @@ function drawTriangleDude(){
 }*/
 
 function createTriangleDude(){
+	var triangleDude;
 	triangledude = createSprite(-10,height-85);
 	triangledude.draw = drawTriangleDude;
 	//triangledude.velocity.x = Math.random() * 2;
@@ -51,34 +52,36 @@ function stack(triangle1, platform1){
 
 }
 
-function createPlatforms(numPlatforms){
-	fill(0);
-	var platformDist = height/numPlatforms;
-	var platformHeight = 50;
+function createPlatform(x,y,w,h){
+	var platform;
+	platform = createSprite(x,y,w,h);
+	platform.immovable = true;
+	platform.shapeColor = (0,0,0);
+	platforms.add(platform);
+	println("1");
+}
+
+function setPlatforms(numPlatforms){
+	var padding = 100;
+	var platformDist = (height-padding)/numPlatforms;
+	var platformHeight = 35;
 	var xpos;
 	var ypos;
 
-	platforms.add(createSprite(0,height-platformHeight,width*2,platformHeight));
-	platforms[0].setCollider("rectangle",-30,height-platformHeight,width+60,platformHeight);
-	platforms[0].shapeColor=(0,0,0);
+	createPlatform(0,height-platformHeight,width*2,platformHeight);
 	for (var i=1; i<numPlatforms-1; i++){
 		// platformWidth = random(100,300);
 		platformWidth = 200;
 		xpos = random(0,width-platformWidth);
 		ypos = height-platformDist*(i+1)+platformHeight;
-		var platform = createSprite(xpos,ypos,platformWidth,platformHeight);
-
-		platform.immovable = true;
-		// console.log(ypos);
-		platforms.add(platform);
-		platforms[i].shapeColor=(0,0,0);
-		//platforms[i].setCollider("rectangle",xpos,ypos,platformWidth,platformHeight);
+		createPlatform(xpos,ypos,platformWidth,platformHeight);
+		println("this happened");
 	}
-	// println(i);
-	ypos = height-platformDist*(i)+platformHeight;
-	platforms.add(createSprite(width-100,ypos,200,platformHeight));
-	//println(platforms.length);
-	platforms[i+1].setCollider("rectangle",xpos,ypos,platformWidth,platformHeight);
-	platforms[i+1].immovable = true;
-	platforms[i+1].shapeColor = (0,0,0);
+	ypos = height-platformDist*(i+1)+platformHeight;
+	// ypos = height;
+	createPlatform(createSprite(width/2-100,ypos,200,platformHeight));
+
+	for (i=0; i<platforms.legnth; i++) {
+		platforms[i].shapeColor = (0,0,0);
+	}
 }

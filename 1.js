@@ -1,8 +1,7 @@
 function levelOne(){
 	// background(50, 220, 255);
 	if (t==0) {
-		createPlatforms(6, 0);
-
+		setPlatforms(6, 0);
         //makes a jelly
         //jelly = createSprite(400, 200, 10, 10);
         //jelly.draw = drawJelly;

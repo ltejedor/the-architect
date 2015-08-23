@@ -1,9 +1,14 @@
 
+/* to do
+replace shapes with images and animations 
+fix collisions 
+
+*/
+
 var gameLevel;
-var t; // Counter that resets on each level.
+var t; // Counter resets on each level.
 var startBtn;
 var jelly;
-var triangledude;
 var jellies;
 var platforms;
 var triangles;
@@ -27,7 +32,7 @@ function draw() {
 	if(gameLevel == 0){
 		startScreen();
 	}
-	else{
+	else if (gameLevel == 1){
 		levelOne();
 	}
 }
