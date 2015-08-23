@@ -1,18 +1,19 @@
 
 /* to do
-replace shapes with images and animations
 collisions
 */
 
 var gameLevel;
 var t; // Counter resets on each level.
 var startBtn;
-var jelly;
-var jellies;
+var cursorQueue;
+var cursorSprite;
+var cursors;
 var platforms;
 var triangles;
 var levelFloor;
-var points = 5;
+var lastPoints = 0;
+var points = 0;
 var baddies;
 var web;
 
@@ -25,6 +26,8 @@ function setup() {
 	jellies = new Group();
 	baddies = new Group();
 	web = new Group();
+	cursors = new Group();
+	cursorQueue = ["Minion","Minion","Minion"];
 
 	textSize(52);
 	textAlign(CENTER);
@@ -37,11 +40,11 @@ function setup() {
 function draw() {
 	background(255);
 	if(gameLevel == 0){
-		// frameRate(2.5);
+		frameRate(4);
 		startScreen();
 	}
 	else if (gameLevel == 1){
-		// frameRate(30);
+		frameRate(30);
 		levelOne();
 	}
 }
@@ -54,16 +57,18 @@ function mousePressed() {
 		t=0;
 	}
 	else if(gameLevel == 1){
-		if(points > 0){
-			createCircleDude();
-			points = points - 1;
+		if(cursorQueue.length > 0){
+			var next = cursorQueue.pop();
+			if (next=="Minion") {
+				createCircleDude();
+			}
 		}
 	}
 }
 
 function updatePoints(){
 	fill(0);
-	textSize(40);
+	textSize(35);
 	if (points<10){
 		var stringpts = "000"+str(points);
 	}

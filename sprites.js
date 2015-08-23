@@ -136,6 +136,20 @@ function setPlatforms(numPlatforms){
 	createPlatform(width/2-100,ypos,200,platformHeight);
 }
 
+function createCursor(){
+	cursorSprite = createSprite(mouseX,mouseY);
+	cursorSprite.addAnimation("Minion","assets/minion-f-1.png");
+	cursorSprite.addAnimation("Nothing","assets/nothing.png");
+	cursors.add(cursorSprite);
+}
+
+
+        //makes a jelly
+        //jelly = createSprite(400, 200, 10, 10);
+        //jelly.draw = drawJelly;
+        //jelly.maxSpeed = 10;
+        //jelly.setCollider("circle", -2,2,55);
+        //jellies.add(jelly);
 
 /*function drawJelly(){
 	  fill(255,90,150);

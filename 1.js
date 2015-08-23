@@ -3,17 +3,15 @@ function levelOne(){
 
 	if (t==0) {
 		setPlatforms(6, 0);
-        //makes a jelly
-        //jelly = createSprite(400, 200, 10, 10);
-        //jelly.draw = drawJelly;
-        //jelly.maxSpeed = 10;
-        //jelly.setCollider("circle", -2,2,55);
-        //jellies.add(jelly);
+        createCursor();
+        noCursor();
 	}
 
     //jelly.velocity.x = (mouseX-jelly.position.x)/10;
     //jelly.velocity.y = (mouseY-jelly.position.y)/10;
 
+    cursorSprite.position.x=mouseX;
+    cursorSprite.position.y=mouseY;
 
     triangles.overlap(triangles,stack);
 
@@ -38,9 +36,6 @@ function levelOne(){
     for(var i=0; i<platforms.length;i++){
         triangles.overlap(platforms[i], jump);
     }
-
-
-
 
     //drawSprites
     drawSprites();
@@ -75,9 +70,20 @@ function levelOne(){
     }
 
     updatePoints();
-
+    updateQueue();
 
 
     t++;
 }
 
+function updateQueue() {
+    if (t%100==0){
+        cursorQueue.unshift("Minion");
+    }
+    if (cursorQueue.length == 0) {
+        cursorSprite.changeAnimation("Nothing");
+    }
+    if (cursorQueue[0]=="Minion"){
+        cursorSprite.changeAnimation("Minion");
+    }
+}
