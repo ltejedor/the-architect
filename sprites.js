@@ -106,6 +106,29 @@ function jumpToPlatformOne(triangle){
 	}
 	else{
 		triangle.setSpeed(1,0);
+		jumpToNextPlaform(triangle, 1);
+	}
+}
+
+function jumpToNextPlaform(triangle, platformNum){
+	if(triangle.position.x > platforms[platformNum].position.x){
+		triangle.position.x = triangle.position.x - 10;
+		triangle.setSpeed(0,0);
+		console.log("x1 is called");
+	}
+	if(triangle.position.x < platforms[platformNum].position.x){
+		triangle.position.x = triangle.position.x + 10;
+		triangle.setSpeed(0,0);
+		console.log("x2 is called");
+	}
+	if(triangle.position.y > platforms[platformNum].position.y - 35){
+		triangle.position.y = triangle.position.y - 10;
+		triangle.setSpeed(0,0);
+		console.log("y is called");
+	}
+	else{
+		triangle.setSpeed(1, 0);
+		jumpToNextPlaform(triangle, platformNum + 1);
 	}
 }
 
