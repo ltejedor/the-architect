@@ -29,7 +29,8 @@ function preload() {
 	baddieDropNoise1 = loadSound('assets/sound/scifi038.mp3');
 	baddieDropNoise2 = loadSound('assets/sound/scifi039.mp3');
 	baddieDropNoise3 = loadSound('assets/sound/scifi040.mp3');
-	errorNoise = loadSound('assets/sound/beep2.wav');
+	errorNoise = loadSound('assets/sound/paddlehit.mp3');
+	deathNoise = loadSound('assets/sound/pop.wav');
 }
 
 function setup() {

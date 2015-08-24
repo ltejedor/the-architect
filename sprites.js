@@ -53,6 +53,7 @@ function createBigBad(){
 
 function explosion(triangle, baddie){
 	triangle.remove();
+	deathNoise.play();
 	baddie.hits++;
 	points++;
 }

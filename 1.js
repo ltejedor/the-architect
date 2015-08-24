@@ -70,7 +70,7 @@ function levelOne(){
         triangles.overlap(baddies[i], explosion);
 
         //if a circle baddie gets hit 3 times it disappears
-        if(baddies[i].hits > 3){
+        if(baddies[i].hits > 2){
             baddies[i].remove();
         }
     }
