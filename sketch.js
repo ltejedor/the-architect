@@ -26,6 +26,10 @@ function preload() {
   // add the path to your sound
 	splashMusic = loadSound('assets/sound/pinecones.wav');
 	gameBgMusic = loadSound('assets/sound/main-bg-tomb.mp3');
+	baddieDropNoise1 = loadSound('assets/sound/scifi038.mp3');
+	baddieDropNoise2 = loadSound('assets/sound/scifi039.mp3');
+	baddieDropNoise3 = loadSound('assets/sound/scifi040.mp3');
+	errorNoise = loadSound('assets/sound/beep2.wav');
 }
 
 function setup() {
@@ -75,8 +79,23 @@ function mousePressed() {
 		if(cursorQueue.length > 0){
 			var next = cursorQueue.pop();
 			if (next=="Minion") {
+				var chance = random(1);
 				createCircleDude();
+				if(chance < .3){
+					baddieDropNoise1.play();
+				}
+				else if(chance < .6){
+					baddieDropNoise2.play();
+				}
+				else{
+					baddieDropNoise3.play();
+				}
+
 			}
+		}
+		else{
+			errorNoise.play();
+
 		}
 	}
 }

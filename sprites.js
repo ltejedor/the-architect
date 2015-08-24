@@ -147,7 +147,7 @@ function setPlatforms(numPlatforms){
 function createCursor(){
 	cursorSprite = createSprite(mouseX,mouseY);
 	cursorSprite.addAnimation("Minion","assets/minion-f-1.png");
-	cursorSprite.addAnimation("Nothing","assets/nothing.png");
+	cursorSprite.addAnimation("Nothing","assets/nothing-1.png");
 	cursorSprite.position.y = 15;
 	//cursors.add(cursorSprite);
 }
