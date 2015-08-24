@@ -60,10 +60,10 @@ function explosion(triangle, baddie){
 
 
 
-function stack(triangle1, triangle2){
+/*function stack(triangle1, triangle2){
 	var top;
 	var bottom;
-	/*if(triangle1.overlap(triangles) && (triangle1.getSpeed() > 0 || triangle2.getSpeed() > 0)){
+	if(triangle1.overlap(triangles) && (triangle1.getSpeed() > 0 || triangle2.getSpeed() > 0)){
 		triangle1.position.y = triangle1.position.y - 15;
 		if(triangle1.getSpeed() < triangle2.getSpeed()){
 			triangle1.position.x = triangle1.position.x + 20;
@@ -73,7 +73,7 @@ function stack(triangle1, triangle2){
 			triangle1.position.x = triangle1.position.x - 20;
 			triangle1.setSpeed(0, 0);
 		}
-	}*/
+	}
 
 	if(!(triangle2.stacked)){
 		tArray1.push(triangle2);
@@ -97,6 +97,16 @@ function stack(triangle1, triangle2){
 
 	triangle1.stacked = true;
 	triangle2.stacked = true;
+}*/
+
+function jumpToPlatformOne(triangle){
+	if(triangle.position.y > platforms[0].position.y - 35){
+		triangle.position.y = triangle.position.y - 10;
+		triangle.setSpeed(0,0);
+	}
+	else{
+		triangle.setSpeed(1,0);
+	}
 }
 
 function jump(triangle, platform){

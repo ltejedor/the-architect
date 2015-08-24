@@ -29,7 +29,8 @@ function levelOne(){
 
         //check it triangle is under first platform
         if(triangles[i].position.x > platforms[0].position.x - 100 && triangles[i].position.x < platforms[0].position.x + 100){
-            triangles[i].overlap(triangles,stack);
+            //triangles[i].overlap(triangles,stack);
+            jumpToPlatformOne(triangles[i]);
         }
 
     }
